@@ -4952,6 +4952,7 @@ a.ui-button:active, .ui-button:active,
   .static-hero-s2 .wpo-static-hero-inner .slide-title-sub h3 {
     padding: 10px 10px;
     font-size: 55px;
+    margin-bottom: 20px;
   }
 }
 
@@ -5059,7 +5060,7 @@ a.ui-button:active, .ui-button:active,
 .static-hero-s2 .static-hero-right .static-hero-img .static-hero-img-inner .hero-img-inner-shape {
   position: absolute;
   left: -52px;
-  top: 70px;
+  top: 30px;
   width: 120%;
 }
 
