@@ -6325,6 +6325,8 @@ a.ui-button:active, .ui-button:active,
 .wpo-portfolio-section .portfolio-grids .grid img,
 .wpo-portfolio-section-s2 .portfolio-grids .grid img {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
 .wpo-portfolio-section .portfolio-grids .owl-stage-outer,
@@ -6459,9 +6461,10 @@ a.ui-button:active, .ui-button:active,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: all .3s;
   transition: all .3s;
+  z-index: 10;
 }
 
 @media (max-width: 575px) {
@@ -6539,55 +6542,61 @@ a.ui-button:active, .ui-button:active,
 .wpo-portfolio-section .grid .img-holder,
 .wpo-portfolio-section-s2 .grid .img-holder {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .wpo-portfolio-section .grid .img-holder .hover-content,
 .wpo-portfolio-section-s2 .grid .img-holder .hover-content {
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  opacity: 0;
-  text-align: center;
-  z-index: 11;
+  display: none !important; /* Hide the plus icon */
 }
 
-.wpo-portfolio-section .grid .img-holder .hover-content i,
-.wpo-portfolio-section-s2 .grid .img-holder .hover-content i {
-  font-size: 30px;
-  color: #101010;
+/* Make anchor tag cover entire grid */
+.wpo-portfolio-section .grid a.fancybox,
+.wpo-portfolio-section-s2 .grid a.fancybox {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .wpo-portfolio-section .grid .img-holder:before,
 .wpo-portfolio-section-s2 .grid .img-holder:before {
   position: absolute;
-  left: 2%;
-  top: 2%;
-  width: 96%;
-  height: 96%;
+  left: -100%;
+  top: 0;
+  width: 50%;
+  height: 100%;
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent) !important;
   opacity: 0;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  transition: none;
+  transform: skewX(-25deg);
   z-index: 1;
-}
-
-.wpo-portfolio-section .img-holder:hover .hover-content,
-.wpo-portfolio-section-s2 .img-holder:hover .hover-content {
-  opacity: 1;
 }
 
 .wpo-portfolio-section .img-holder:hover:before,
 .wpo-portfolio-section-s2 .img-holder:hover:before {
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  animation: shine 0.8s ease-out !important;
+}
+
+/* Prevent animation spam */
+.wpo-portfolio-section .img-holder.shine-active:before,
+.wpo-portfolio-section-s2 .img-holder.shine-active:before {
+  animation: shine 0.8s ease-out !important;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
 
 .wpo-portfolio-section.pt-120,
@@ -9502,14 +9511,16 @@ a.ui-button:active, .ui-button:active,
 .bank-label {
   position: absolute;
   top: 15px;
-  left: 15px;
-  font-size: 14px;
+  right: 15px; /* Move to right corner */
+  left: auto; /* Remove left positioning */
+  font-size: 40px; /* Increase to 40px */
   font-weight: bold;
   color: #ff9999;
   background-color: transparent;
   padding: 5px 10px;
   border-radius: 0;
-  text-transform: uppercase;
+  font-family: "Mea Culpa", cursive; /* Added stylish font */
+  text-transform: none; /* Allow lowercase letters */
 }
 
 .bank-image {
@@ -9528,7 +9539,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 .bank-details {
-  font-size: 16px;
+  font-size: 20px; /* Increased size */
   color: #666666;
   margin: 15px 0;
   text-align: center;
@@ -9536,11 +9547,11 @@ a.ui-button:active, .ui-button:active,
 }
 
 .bank-account-display {
-  background-color: #657150;
+  background-color: #87ac94;
   color: white;
-  padding: 10px 15px;
+  padding: 15px 20px; /* Increased padding */
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 20px; /* Increased size */
   font-weight: 500;
   text-align: center;
   width: 100%;
@@ -9620,17 +9631,23 @@ a.ui-button:active, .ui-button:active,
     padding: 24px;
   }
   
+  .bank-label {
+    font-size: 30px; /* Responsive size for label */
+    right: 10px; /* Adjust position for mobile */
+    top: 10px;
+  }
+  
   .bank-holder-name {
     font-size: 22px;
   }
   
   .bank-details {
-    font-size: 15px;
+    font-size: 18px; /* Responsive size */
   }
   
-  .bank-account-number {
-    font-size: 16px;
-    padding: 10px 15px;
+  .bank-account-display {
+    font-size: 18px; /* Responsive size */
+    padding: 12px 18px;
   }
 }
 
