@@ -3469,7 +3469,7 @@ a.ui-button:active, .ui-button:active,
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991px) and (min-width: 768px) {
   .wpo-hero-slider .slide-title h2,
   .static-hero .slide-title h2,
   .static-hero-s2 .slide-title h2,
@@ -3478,8 +3478,8 @@ a.ui-button:active, .ui-button:active,
   .static-hero-s10 .slide-title h2,
   .wpo-hero-slider-s2 .slide-title h2,
   .wpo-hero-slider-s3 .slide-title h2 {
-    font-size: 40px;
-    font-size: 2.66667rem;
+    font-size: 50px; /* Increased by 10px */
+    font-size: 3.33333rem; /* Proportional increase */
     line-height: 55px;
     margin-bottom: 20px;
   }
@@ -3494,8 +3494,8 @@ a.ui-button:active, .ui-button:active,
   .static-hero-s10 .slide-title h2,
   .wpo-hero-slider-s2 .slide-title h2,
   .wpo-hero-slider-s3 .slide-title h2 {
-    font-size: 30px;
-    font-size: 2rem;
+    font-size: 40px; /* Increased by 10px */
+    font-size: 2.66667rem; /* Proportional increase */
     line-height: 36px;
   }
 }
@@ -9514,13 +9514,14 @@ a.ui-button:active, .ui-button:active,
   right: 15px; /* Move to right corner */
   left: auto; /* Remove left positioning */
   font-size: 40px; /* Increase to 40px */
-  font-weight: bold;
+  font-weight: 300; /* Thinner strokes */
   color: #ff9999;
   background-color: transparent;
   padding: 5px 10px;
   border-radius: 0;
   font-family: "Mea Culpa", cursive; /* Added stylish font */
   text-transform: none; /* Allow lowercase letters */
+  letter-spacing: 1px; /* Add slight letter spacing for elegance */
 }
 
 .bank-image {
@@ -9632,9 +9633,11 @@ a.ui-button:active, .ui-button:active,
   }
   
   .bank-label {
-    font-size: 30px; /* Responsive size for label */
+    font-size: 45px; /* Responsive size for label */
     right: 10px; /* Adjust position for mobile */
     top: 10px;
+    font-weight: 300; /* Maintain thin strokes on mobile */
+    letter-spacing: 0.5px; /* Adjust letter spacing for mobile */
   }
   
   .bank-holder-name {
